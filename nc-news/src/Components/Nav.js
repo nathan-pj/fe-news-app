@@ -6,10 +6,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 //import MenuIcon from "@mui/icons-material/Menu";
 import LoadingBar from "./LoadingBar";
 import axios from "axios";
+import SortByDropDown from "./SortByDropDown";
 const fetchTopics = axios.create({
   baseURL: "https://nc-example-news.herokuapp.com/api",
 });
@@ -25,7 +26,7 @@ export default function Nav() {
   if (isLoading) {
     LoadingBar();
   }
-
+  console.log(useLocation());
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -58,6 +59,7 @@ export default function Nav() {
               </Link>
             );
           })}
+          <SortByDropDown />
         </Toolbar>
       </AppBar>
     </Box>
