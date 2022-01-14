@@ -1,5 +1,5 @@
 .article {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Helvetica", Sans-Serif;
   color: rgb(61, 61, 61);
 
   padding: 30px;
@@ -52,7 +52,7 @@ a.like-button {
 }
 
 .comments {
-  font-family: "Courier New";
+  font-family: "Helvetica", Sans-Serif;
   font-size: 14px;
   color: black;
 }
