@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+.article {
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(61, 61, 61);
+
+  padding: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+} */
+
+.nav-buttons {
+  color: aquamarine;
+  padding-left: 4%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.links {
+  text-decoration: none;
+  color: rgb(61, 61, 61);
+  float: right;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.text {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  align-items: center;
+  margin-left: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+a.like-button {
+  padding-right: 25%;
+  padding-up: 2%;
+  padding-down: 2%;
+  padding-left: 0.5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.thumb-icon {
+  color: rgb(32, 116, 221);
+  outline: none !important;
+  border: none;
+  background-color: white;
+}
+.bin-icon {
+  color: rgb(36, 36, 36);
+  outline: none !important;
+  border: none;
+  background-color: white;
+}
+
+.comments {
+  font-family: "Courier New";
+  font-size: 14px;
+  color: black;
+}
+.wheel {
+  padding-left: 100px;
+}
+.submit-comment {
+  padding: 2%;
 }
