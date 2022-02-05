@@ -1,8 +1,8 @@
-import "./App.css";
-import Nav from "./Components/Nav";
-import HomePage from "./Components/HomePage";
-import GetSingleArticle from "./Components/GetSingleArticle";
-import { GetArticles } from "./Components/GetArticles";
+import "./css/App.css";
+import Nav from "./Components/nav/Nav";
+import HomePage from "./Components/pages/mainPage/HomePage";
+import GetSingleArticle from "./Components/pages/articlePage/GetSingleArticle";
+import { GetArticles } from "./Components/pages/mainPage/GetArticles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {

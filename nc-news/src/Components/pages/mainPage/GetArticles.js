@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import CustomizedProgressBars from "./LoadingWheel";
+import CustomizedProgressBars from "../../LoadingWheel";
 import SimpleBackdrop from "./SimpleBackdrop";
 import Voter from "./Voter";
 const newsApi = axios.create({
@@ -38,8 +38,11 @@ export const GetArticles = () => {
           />
 
           <Link to={`/articles/${article.article_id}`} className="links">
-            <h2>{article.title}</h2>
-            <p>{article.body}</p>
+            <div className="article-text">
+              <h2>{article.title}</h2>
+
+              <p>{article.body}</p>
+            </div>
           </Link>
         </div>
 

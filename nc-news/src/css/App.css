@@ -62,3 +62,11 @@ a.like-button {
 .submit-comment {
   padding: 2%;
 }
+
+/* .article {
+  transition: all 1s ease;
+}
+.article:hover {
+  transition: all 1s ease;
+  background-color: rgb(223, 223, 223);
+} */

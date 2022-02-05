@@ -5,7 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import stringAvatar from "../Utils/StringAvatar";
+import stringAvatar from "../../../Utils/StringAvatar";
 import Stack from "@mui/material/Stack";
 import BinIcon from "./BinIcon";
 import DeleteComment from "./DeleteComment";

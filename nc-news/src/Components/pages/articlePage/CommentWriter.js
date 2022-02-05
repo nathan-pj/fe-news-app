@@ -15,6 +15,15 @@ export default function CommentWriter({ comments, id }) {
   const resetInputField = () => {
     setComment("");
   };
+
+  // const refreshComments = () => {
+  //   newsApi.get(`/articles/${id}/comments`).then((res) => {
+  //     setComments(res.data.comments);
+  //     console.log("req");
+  //     console.log(comments);
+  //   });
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment) {

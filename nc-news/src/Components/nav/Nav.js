@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import { Link, useLocation } from "react-router-dom";
 //import MenuIcon from "@mui/icons-material/Menu";
-import LoadingBar from "./LoadingBar";
+import LoadingBar from "../LoadingBar";
 import axios from "axios";
 import SortByDropDown from "./SortByDropDown";
 const fetchTopics = axios.create({

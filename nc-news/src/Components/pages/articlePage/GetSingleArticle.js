@@ -4,8 +4,8 @@ import * as React from "react";
 import DisplayComments from "./DisplayComments";
 import axios from "axios";
 import CommentWriter from "./CommentWriter";
-import SimpleBackdrop from "./SimpleBackdrop";
-import CustomizedProgressBars from "./LoadingWheel";
+import SimpleBackdrop from "../mainPage/SimpleBackdrop";
+import CustomizedProgressBars from "../../LoadingWheel";
 const newsApi = axios.create({
   baseURL: "https://nc-example-news.herokuapp.com/api/",
 });
@@ -20,10 +20,14 @@ export default function GetSingleArticle() {
       setArticle(res.data.article);
       setIsLoading(false);
     });
+  }, []);
+  useEffect(() => {
     newsApi.get(`/articles/${id}/comments`).then((res) => {
       setComments(res.data.comments);
+      console.log("req");
+      console.log(comments);
     });
-  }, [comments]);
+  }, []);
 
   if (isLoading) return <SimpleBackdrop />;
   else {
