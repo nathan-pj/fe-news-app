@@ -1,15 +1,23 @@
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import * as React from "react";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Typography,
+  Stack,
+} from "@mui/material";
+
 import stringAvatar from "../../../Utils/StringAvatar";
-import Stack from "@mui/material/Stack";
-import BinIcon from "./BinIcon";
-import DeleteComment from "./DeleteComment";
-export default function DisplayComments({ comments }) {
+import DeleteOption from "./DeleteComment";
+
+export default function DisplayComments({
+  comments,
+  deletedComment,
+  setDeletedComment,
+  comment,
+}) {
   const singedIn = "jessjelly";
 
   return (
@@ -25,12 +33,10 @@ export default function DisplayComments({ comments }) {
             className="text"
           >
             {comment.author === singedIn ? (
-              <button
-                className="bin-icon"
-                onClick={() => DeleteComment(comment.comment_id)}
-              >
-                <BinIcon />
-              </button>
+              <DeleteOption
+                comment={comment}
+                setDeletedComment={setDeletedComment}
+              />
             ) : null}
 
             <ListItem alignItems="flex-start">

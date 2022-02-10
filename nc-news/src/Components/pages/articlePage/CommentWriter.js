@@ -4,39 +4,42 @@ import Button from "@material-ui/core/Button";
 import SendIcon from "@mui/icons-material/Send";
 
 import axios from "axios";
-import GetSingleArticle from "./GetSingleArticle";
 
-export default function CommentWriter({ comments, id }) {
+export default function CommentWriter({
+  id,
+  comment,
+  setComment,
+  setCommentSubmit,
+}) {
   const postCommentApi = axios.create({
     baseURL: `https://nc-example-news.herokuapp.com/api/articles`,
   });
-  const [comment, setComment] = useState("");
+
   const [commentError, setCommentError] = useState(false);
   const resetInputField = () => {
     setComment("");
   };
 
-  // const refreshComments = () => {
-  //   newsApi.get(`/articles/${id}/comments`).then((res) => {
-  //     setComments(res.data.comments);
-  //     console.log("req");
-  //     console.log(comments);
-  //   });
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (comment) {
-      console.log(comment);
       setCommentError(false);
-      postCommentApi.post(`/${id}/comments`, {
-        body: comment,
-        username: "jessjelly",
-      });
+      postCommentApi
+        .post(`/${id}/comments`, {
+          body: comment,
+          username: "jessjelly",
+        })
+        .then(() => {
+          setCommentSubmit(comment);
+          setComment("");
+          e.target.reset();
+        });
 
       //
     } else {
       setCommentError(true);
+      alert("cannot submit empty comment!");
     }
   };
   return (
@@ -56,18 +59,19 @@ export default function CommentWriter({ comments, id }) {
         error={commentError}
         rows={4}
       />
-      <Button
-        type="submit"
-        style={{
-          backgroundColor: "#2074dd",
-          color: "white",
-        }}
-        className="send"
-        variant="contained"
-        endIcon={<SendIcon />}
-      >
-        Submit
-      </Button>
+      <div className="send">
+        <Button
+          type="submit"
+          style={{
+            backgroundColor: "#2074dd",
+            color: "white",
+          }}
+          variant="contained"
+          endIcon={<SendIcon />}
+        >
+          Submit
+        </Button>
+      </div>
     </form>
   );
 }
