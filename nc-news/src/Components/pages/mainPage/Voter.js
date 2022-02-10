@@ -5,10 +5,10 @@ export default function Voter({ votes, id }) {
   let [currentVotes, updateVotes] = useState(votes);
   const [clicked, setClicked] = useState(false);
   return (
-    <a className="text">
-      {currentVotes}
-      <p
-        className="like-button"
+    <div className="likes">
+      <div className="like__number">{currentVotes}</div>
+      <div
+        className="like__icon"
         onClick={() => {
           if (clicked) {
             setClicked(false);
@@ -22,7 +22,7 @@ export default function Voter({ votes, id }) {
         }}
       >
         {clicked ? LikeButtonFilled() : LikeButtonHollow()}
-      </p>
-    </a>
+      </div>
+    </div>
   );
 }

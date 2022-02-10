@@ -5,7 +5,7 @@ import DisplayComments from "./DisplayComments";
 import axios from "axios";
 import CommentWriter from "./CommentWriter";
 import SimpleBackdrop from "../mainPage/SimpleBackdrop";
-import CustomizedProgressBars from "../../LoadingWheel";
+import Voter from "../mainPage/Voter";
 const newsApi = axios.create({
   baseURL: "https://nc-example-news.herokuapp.com/api/",
 });
@@ -15,6 +15,9 @@ export default function GetSingleArticle() {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
+  const [commentSubmit, setCommentSubmit] = useState("");
+  const [deletedComment, setDeletedComment] = useState("");
   useEffect(() => {
     newsApi.get(`/articles/${id}`).then((res) => {
       setArticle(res.data.article);
@@ -24,21 +27,39 @@ export default function GetSingleArticle() {
   useEffect(() => {
     newsApi.get(`/articles/${id}/comments`).then((res) => {
       setComments(res.data.comments);
-      console.log("req");
-      console.log(comments);
     });
-  }, []);
+  }, [commentSubmit, deletedComment]);
 
   if (isLoading) return <SimpleBackdrop />;
   else {
     return (
       <div key={article.article_id} className="article">
-        <h2>{article.title}</h2>
+        <div className="voter">
+          <Voter votes={article.votes} id={article.article_id} />
+        </div>
+        <div className="article__title">
+          <h2>{article.title} </h2>
+        </div>
+
         <div className="text">
           <p>{article.body}</p>
         </div>
-        <CommentWriter comments={comments} id={id} />
-        <DisplayComments comments={comments} />
+        <p className="author">Written by {article.author}</p>
+
+        <CommentWriter
+          className="submit-comment"
+          id={id}
+          comment={comment}
+          setComment={setComment}
+          setCommentSubmit={setCommentSubmit}
+          commentSubmit={commentSubmit}
+        />
+        <DisplayComments
+          comments={comments}
+          deletedComment={deletedComment}
+          setDeletedComment={setDeletedComment}
+          comment={comment}
+        />
 
         <br />
       </div>

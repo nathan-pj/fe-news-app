@@ -1,9 +1,9 @@
 import * as React from "react";
-import { GetArticles } from "./GetArticles";
-export default function HomePage() {
+import GetArticles from "./GetArticles";
+export default function HomePage({ sortBy, setSortBy }) {
   return (
     <>
-      <GetArticles />
+      <GetArticles sortBy={sortBy} setSortBy={setSortBy} />
     </>
   );
 }

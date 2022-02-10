@@ -1,54 +1,82 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import CustomizedProgressBars from "../../LoadingWheel";
+import LimitText from "./LimitText";
 import SimpleBackdrop from "./SimpleBackdrop";
-import Voter from "./Voter";
+import NotFound from "../../NotFound";
+import SortBy from "../../nav/SortBy";
 const newsApi = axios.create({
   baseURL: "https://nc-example-news.herokuapp.com/api/",
 });
-export const GetArticles = () => {
+export default function GetArticles({ sortBy, setSortBy }) {
   const { search } = useLocation();
   const searchQuery = search.split("=").pop();
 
   const [articlesList, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [topicValidity, setTopicValidity] = useState(true);
+  const [sortByChanged, setSortByChanged] = useState("yes");
   useEffect(() => {
-    newsApi.get("/articles", { params: { topic: searchQuery } }).then((res) => {
-      setArticles(res.data.articles);
-      setIsLoading(false);
-    });
-  }, [search]);
+    // console.log(sortBy);
+    // if (!sortBy) {
+    //   setSortBy("votes");
+    // }
+
+    newsApi
+      .get("/articles", {
+        params: {
+          topic: searchQuery,
+          sort_by: sortBy ? sortBy : setSortBy("votes"),
+        },
+      })
+      .then((res) => {
+        console.log(sortBy);
+        setTopicValidity(true);
+        setArticles(res.data.articles);
+
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setTopicValidity(false);
+        setIsLoading(false);
+      });
+  }, [search, searchQuery, sortByChanged]);
   // console.log(articlesList);
 
   if (isLoading) {
     return <SimpleBackdrop />;
   }
   //else {
+  //console.log(setSortBy);
+  return (
+    <>
+      <SortBy setSortBy={setSortBy} setSortByChanged={setSortByChanged} />
+      {topicValidity ? (
+        articlesList.map((article) => {
+          return (
+            <div className="article" key={article.article_id}>
+              <div className="text">
+                <div className="article-text">
+                  <h2 className="article-title">{article.title}</h2>
+                  <Link
+                    to={`/articles/${article.article_id}`}
+                    className="links"
+                  >
+                    <p>
+                      {LimitText(article.body)} ..
+                      <p className="read-more">[read more]</p>
+                    </p>
+                  </Link>
+                </div>
+              </div>
 
-  return articlesList.map((article) => {
-    return (
-      <div className="article" key={article.article_id}>
-        <div className="text">
-          <Voter
-            className="text"
-            votes={article.votes}
-            id={article.article_id}
-          />
-
-          <Link to={`/articles/${article.article_id}`} className="links">
-            <div className="article-text">
-              <h2>{article.title}</h2>
-
-              <p>{article.body}</p>
+              <br />
             </div>
-          </Link>
-        </div>
-
-        <br />
-      </div>
-    );
-  });
-  //}
-};
+          );
+        })
+      ) : (
+        <NotFound />
+      )}
+    </>
+  );
+}
