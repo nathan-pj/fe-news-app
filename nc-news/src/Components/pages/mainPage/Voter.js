@@ -5,8 +5,7 @@ export default function Voter({ votes, id }) {
   let [currentVotes, updateVotes] = useState(votes);
   const [clicked, setClicked] = useState(false);
   return (
-    <div className="likes">
-      <div className="like__number">{currentVotes}</div>
+    <div>
       <div
         className="like__icon"
         onClick={() => {
@@ -21,6 +20,7 @@ export default function Voter({ votes, id }) {
           }
         }}
       >
+        <div className="like__number">{currentVotes}</div>
         {clicked ? LikeButtonFilled() : LikeButtonHollow()}
       </div>
     </div>

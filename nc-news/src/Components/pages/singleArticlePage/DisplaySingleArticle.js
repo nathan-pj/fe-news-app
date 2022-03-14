@@ -3,22 +3,31 @@ import { useEffect, useState } from "react";
 import * as React from "react";
 import DisplayComments from "./DisplayComments";
 import axios from "axios";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CommentWriter from "./CommentWriter";
 import SimpleBackdrop from "../mainPage/SimpleBackdrop";
 import Voter from "../mainPage/Voter";
+import DeleteOption from "../mainPage/DeleteArticle";
 const newsApi = axios.create({
-  baseURL: "https://nc-example-news.herokuapp.com/api/",
+  baseURL: "https://news-app-npj.herokuapp.com/api/",
 });
 
-export default function GetSingleArticle() {
+export default function DisplaySingleArticle({
+  isLoading,
+  setIsLoading,
+
+  setDeletedArticle,
+  signedIn,
+}) {
   const { id } = useParams();
   const [article, setArticle] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
   const [commentSubmit, setCommentSubmit] = useState("");
   const [deletedComment, setDeletedComment] = useState("");
   useEffect(() => {
+    setIsLoading(true);
     newsApi.get(`/articles/${id}`).then((res) => {
       setArticle(res.data.article);
       setIsLoading(false);
@@ -26,17 +35,20 @@ export default function GetSingleArticle() {
   }, []);
   useEffect(() => {
     newsApi.get(`/articles/${id}/comments`).then((res) => {
-      setComments(res.data.comments);
+      setComments(res.data.comments.reverse());
     });
-  }, [commentSubmit, deletedComment]);
+  }, [commentSubmit, deletedComment, id]);
 
   if (isLoading) return <SimpleBackdrop />;
   else {
     return (
       <div key={article.article_id} className="article">
-        <div className="voter">
-          <Voter votes={article.votes} id={article.article_id} />
-        </div>
+        {article.author === signedIn ? (
+          <DeleteOption
+            article={article}
+            setDeletedArticle={setDeletedArticle}
+          />
+        ) : null}
         <div className="article__title">
           <h2>{article.title} </h2>
         </div>
@@ -44,7 +56,16 @@ export default function GetSingleArticle() {
         <div className="text">
           <p>{article.body}</p>
         </div>
-        <p className="author">Written by {article.author}</p>
+        <div className="article-icons">
+          <div className="likes">
+            <Voter votes={article.votes} id={article.article_id} />
+          </div>
+          <p className="author">
+            <AccountCircleIcon />
+
+            {article.author}
+          </p>
+        </div>
 
         <CommentWriter
           className="submit-comment"
@@ -53,12 +74,15 @@ export default function GetSingleArticle() {
           setComment={setComment}
           setCommentSubmit={setCommentSubmit}
           commentSubmit={commentSubmit}
+          setComments={setComments}
+          comments={comments}
         />
         <DisplayComments
           comments={comments}
           deletedComment={deletedComment}
           setDeletedComment={setDeletedComment}
           comment={comment}
+          signedIn={signedIn}
         />
 
         <br />

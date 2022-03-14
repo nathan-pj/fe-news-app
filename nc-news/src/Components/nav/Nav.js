@@ -1,76 +1,48 @@
-import * as React from "react";
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-} from "@mui/material";
+import "./Nav.css";
+import React from "react";
 import UserIcon from "./UserIcon";
-import { useState, useEffect } from "react";
+import CreateIcon from "@mui/icons-material/Create";
 
-import { Link, useLocation } from "react-router-dom";
-//import MenuIcon from "@mui/icons-material/Menu";
-import LoadingBar from "../LoadingBar";
-import axios from "axios";
+import { Nav, Navbar } from "react-bootstrap";
 
-const fetchTopics = axios.create({
-  baseURL: "https://nc-example-news.herokuapp.com/api",
-});
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function Nav({ setSortBy }) {
-  const [topics, setTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    fetchTopics.get("/topics/").then((res) => {
-      setTopics(res.data.topics);
-      setIsLoading(false);
-    });
-  }, []);
-  if (isLoading) {
-    LoadingBar();
-  }
-
+export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <div>
-        <AppBar position="static" className="nav">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            ></IconButton>
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ flexGrow: 1, fontSize: 25 }}
-              >
-                NC News
-              </Typography>
-            </Link>
-
-            {topics.map((topic) => {
-              return (
-                <Link
-                  className="nav-buttons"
-                  to={`/articles?topic=${topic.slug}`}
-                  style={{ textDecoration: "none" }}
-                  onClick={setSortBy("")}
-                >
-                  <Button color="inherit">{topic.slug}</Button>
-                </Link>
-              );
-            })}
-
-            <UserIcon />
-          </Toolbar>
-        </AppBar>
-      </div>
-    </Box>
+    <Navbar collapseOnSelect expand="lg" variant="dark" className="nav">
+      <Navbar.Brand href="/" className="nc-news">
+        nc news
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav>
+          <Nav.Link href="/articles?topic=coding" onClick={() => setSortBy("")}>
+            Coding
+          </Nav.Link>
+          <Nav.Link
+            href="/articles?topic=football"
+            onClick={() => setSortBy("")}
+          >
+            Football
+          </Nav.Link>
+          <Nav.Link
+            href="/articles?topic=cooking"
+            onClick={() => setSortBy("")}
+          >
+            Cooking
+          </Nav.Link>
+        </Nav>
+        {isLoading ? null : (
+          <Nav className="ms-auto">
+            <Nav.Link href="/write-article">
+              <CreateIcon style={{ textDecoration: "none", color: "white" }} />
+            </Nav.Link>
+            <div className="logged-in ">
+              <UserIcon sx={{ display: "flex" }} />
+            </div>
+          </Nav>
+        )}
+      </Navbar.Collapse>
+    </Navbar>
   );
 }

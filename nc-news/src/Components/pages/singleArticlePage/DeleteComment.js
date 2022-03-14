@@ -2,7 +2,7 @@ import axios from "axios";
 import BinIcon from "./BinIcon";
 function DeleteComment(comment_id, setDeletedComment, comment) {
   const commentApi = axios.create({
-    baseURL: `https://nc-example-news.herokuapp.com/api/comments/${comment_id}`,
+    baseURL: `https://news-app-npj.herokuapp.com/api/comments/${comment_id}`,
   });
   commentApi.delete().then(() => {
     setDeletedComment(comment.comment_id);

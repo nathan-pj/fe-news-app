@@ -1,7 +1,7 @@
 import axios from "axios";
 export default function PatchLike(id, vote) {
   const newsApi = axios.create({
-    baseURL: "https://nc-example-news.herokuapp.com/api/articles",
+    baseURL: "https://news-app-npj.herokuapp.com/api/articles",
   });
 
   newsApi

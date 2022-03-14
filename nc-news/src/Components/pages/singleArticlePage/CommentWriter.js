@@ -1,6 +1,6 @@
-import TextField from "@material-ui/core/TextField";
+import { TextField, Button } from "@material-ui/core";
 import { useState } from "react";
-import Button from "@material-ui/core/Button";
+
 import SendIcon from "@mui/icons-material/Send";
 
 import axios from "axios";
@@ -10,20 +10,19 @@ export default function CommentWriter({
   comment,
   setComment,
   setCommentSubmit,
+  setComments,
+  comments,
 }) {
   const postCommentApi = axios.create({
-    baseURL: `https://nc-example-news.herokuapp.com/api/articles`,
+    baseURL: `https://news-app-npj.herokuapp.com/api/articles`,
   });
 
   const [commentError, setCommentError] = useState(false);
-  const resetInputField = () => {
-    setComment("");
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (comment) {
+    if (comment.length !== 0) {
       setCommentError(false);
       postCommentApi
         .post(`/${id}/comments`, {
@@ -34,6 +33,9 @@ export default function CommentWriter({
           setCommentSubmit(comment);
           setComment("");
           e.target.reset();
+        })
+        .catch((err) => {
+          console.log(err);
         });
 
       //
