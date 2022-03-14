@@ -57,9 +57,9 @@ export default function DisplayArticles({
         <div>
           <div className="type-of-articles">
             {searchQuery.length > 0 ? (
-              <h1>{searchQuery} articles</h1>
+              <h1>{searchQuery.toUpperCase()} Articles</h1>
             ) : (
-              <h1>all articles</h1>
+              <h1>All Articles</h1>
             )}
           </div>
           <div className="sort-by-buttons">
