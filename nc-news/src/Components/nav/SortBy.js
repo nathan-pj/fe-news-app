@@ -1,11 +1,11 @@
-import * as React from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-
-export default function SortBy({ setSortBy, setSortByChanged }) {
+import {
+  FormLabel,
+  FormControl,
+  FormControlLabel,
+  RadioGroup,
+  Radio,
+} from "@mui/material";
+export default function SortBy({ setSortBy, setSortByChanged, sortBy }) {
   function onValueChange(event) {
     setSortBy(event);
     setSortByChanged(Date.now());
@@ -14,7 +14,9 @@ export default function SortBy({ setSortBy, setSortByChanged }) {
     <div className="sort-by">
       <FormControl>
         <div className="sort-by-text">
-          <FormLabel id="demo-form-control-label-placement">Sort by:</FormLabel>
+          <FormLabel id="demo-form-control-label-placement">
+            Sort by: {sortBy}
+          </FormLabel>
         </div>
         <RadioGroup
           row

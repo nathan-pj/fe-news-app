@@ -1,11 +1,7 @@
-import axios from "axios";
+import apiCall from "../../../Api";
 export default function PatchLike(id, vote) {
-  const newsApi = axios.create({
-    baseURL: "https://news-app-npj.herokuapp.com/api/articles",
-  });
-
-  newsApi
-    .patch(`/${id}`, { inc_votes: vote })
+  apiCall
+    .patch(`articles/${id}`, { inc_votes: vote })
     .then((res) => {
       console.log(res.data);
     })

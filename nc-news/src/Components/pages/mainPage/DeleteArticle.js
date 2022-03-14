@@ -1,20 +1,17 @@
-import axios from "axios";
+import apiCall from "../../../Api";
 import BinIcon from "../singleArticlePage/BinIcon";
-function DeleteArticle(article_id, setDeletedArticle, article) {
-  const articleApi = axios.create({
-    baseURL: `https://news-app-npj.herokuapp.com/api/articles/${article_id}`,
-  });
-  articleApi.delete().then(() => {
+function deleteCall(article_id, setDeletedArticle, article) {
+  apiCall.delete(`/articles/${article_id}`).then(() => {
     setDeletedArticle(article.article_id);
   });
 }
 
-export default function DeleteOption({ article, setDeletedArticle }) {
+export default function DeleteArticle({ article, setDeletedArticle }) {
   return (
     <button
       className="bin-icon"
       onClick={() => {
-        DeleteArticle(article.article_id, setDeletedArticle, article);
+        deleteCall(article.article_id, setDeletedArticle, article);
       }}
     >
       <BinIcon />

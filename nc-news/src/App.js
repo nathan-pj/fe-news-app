@@ -1,12 +1,14 @@
 import "./css/App.css";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import NavBar from "./Components/nav/Nav";
 import DisplayAllArticles from "./Components/pages/mainPage/DisplayAllArticles";
 import DisplaySingleArticle from "./Components/pages/singleArticlePage/DisplaySingleArticle";
 import DisplayArticles from "./Components/pages/mainPage/DisplayArticles";
 import WriteArticle from "./Components/pages/writeArticle/WriteArticle";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import NotFound from "./Components/NotFound";
-import { useState } from "react";
 
 function App() {
   const [signedIn, setSignedIn] = useState("jessjelly");

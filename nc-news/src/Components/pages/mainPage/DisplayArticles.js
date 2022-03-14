@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiCall from "../../../Api";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -9,9 +9,7 @@ import SimpleBackdrop from "./SimpleBackdrop";
 import NotFound from "../../NotFound";
 import SortBy from "../../nav/SortBy";
 import DeleteOption from "./DeleteArticle";
-const newsApi = axios.create({
-  baseURL: "https://news-app-npj.herokuapp.com/api/",
-});
+
 export default function DisplayArticles({
   sortBy,
   setSortBy,
@@ -24,14 +22,14 @@ export default function DisplayArticles({
   const { search } = useLocation();
   const searchQuery = search.split("=").pop();
 
-  const [articlesList, setArticles] = useState([]);
+  const [articlesList, setArticlesList] = useState([]);
 
   const [topicValidity, setTopicValidity] = useState(true);
   const [sortByChanged, setSortByChanged] = useState("yes");
 
   useEffect(() => {
     setIsLoading(true);
-    newsApi
+    apiCall
       .get(`/articles`, {
         params: {
           topic: searchQuery,
@@ -39,7 +37,7 @@ export default function DisplayArticles({
         },
       })
       .then((res) => {
-        setArticles(res.data.articles);
+        setArticlesList(res.data.articles);
 
         setIsLoading(false);
       })
@@ -65,7 +63,11 @@ export default function DisplayArticles({
             )}
           </div>
           <div className="sort-by-buttons">
-            <SortBy setSortBy={setSortBy} setSortByChanged={setSortByChanged} />
+            <SortBy
+              setSortBy={setSortBy}
+              sortBy={sortBy}
+              setSortByChanged={setSortByChanged}
+            />
           </div>
 
           {articlesList.map((article) => {

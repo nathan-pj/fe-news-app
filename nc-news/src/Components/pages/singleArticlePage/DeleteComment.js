@@ -1,10 +1,7 @@
-import axios from "axios";
+import apiCall from "../../../Api";
 import BinIcon from "./BinIcon";
 function DeleteComment(comment_id, setDeletedComment, comment) {
-  const commentApi = axios.create({
-    baseURL: `https://news-app-npj.herokuapp.com/api/comments/${comment_id}`,
-  });
-  commentApi.delete().then(() => {
+  apiCall.delete(`/comments/${comment_id}`).then(() => {
     setDeletedComment(comment.comment_id);
   });
 }

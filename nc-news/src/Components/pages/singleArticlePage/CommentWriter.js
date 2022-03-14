@@ -2,21 +2,14 @@ import { TextField, Button } from "@material-ui/core";
 import { useState } from "react";
 
 import SendIcon from "@mui/icons-material/Send";
-
-import axios from "axios";
+import apiCall from "../../../Api";
 
 export default function CommentWriter({
   id,
   comment,
   setComment,
   setCommentSubmit,
-  setComments,
-  comments,
 }) {
-  const postCommentApi = axios.create({
-    baseURL: `https://news-app-npj.herokuapp.com/api/articles`,
-  });
-
   const [commentError, setCommentError] = useState(false);
 
   const handleSubmit = (e) => {
@@ -24,8 +17,8 @@ export default function CommentWriter({
 
     if (comment.length !== 0) {
       setCommentError(false);
-      postCommentApi
-        .post(`/${id}/comments`, {
+      apiCall
+        .post(`articles/${id}/comments`, {
           body: comment,
           username: "jessjelly",
         })
