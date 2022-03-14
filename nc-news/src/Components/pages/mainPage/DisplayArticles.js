@@ -75,17 +75,22 @@ export default function DisplayArticles({
               <div className="article" key={article.article_id}>
                 <div className="text">
                   <div className="article-text">
-                    <h2 className="article-title">{article.title}</h2>
-
                     <Link
                       to={`/articles/${article.article_id}`}
                       className="links"
                     >
-                      <div>
-                        {limitText(article.body)}...
-                        <p className="read-more">[read more]</p>
-                      </div>
+                      <h2 className="article-title">{article.title}</h2>
                     </Link>
+                    <div>
+                      {limitText(article.body)}...
+                      <Link
+                        to={`/articles/${article.article_id}`}
+                        className="links"
+                      >
+                        {" "}
+                        <p className="read-more">[read more]</p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="article-icons">
