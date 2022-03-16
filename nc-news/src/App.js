@@ -65,7 +65,7 @@ function App() {
               }
             />
             <Route
-              path="/articles/:topic"
+              path="fe-news-app/#/articles/:topic"
               element={
                 <DisplayArticles
                   sortBy={sortBy}
