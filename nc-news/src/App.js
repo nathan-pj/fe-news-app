@@ -6,9 +6,10 @@ import NavBar from "./Components/nav/Nav";
 import DisplayAllArticles from "./Components/pages/mainPage/DisplayAllArticles";
 import DisplaySingleArticle from "./Components/pages/singleArticlePage/DisplaySingleArticle";
 import DisplayArticles from "./Components/pages/mainPage/DisplayArticles";
-import WriteArticle from "./Components/pages/writeArticle/WriteArticle";
+import WriteArticle from "./Components/pages/writeArticlePage/WriteArticle";
 
 import NotFound from "./Components/NotFound";
+import Info from "./Components/pages/infoPage/Info";
 
 function App() {
   const [signedIn, setSignedIn] = useState("jessjelly");
@@ -75,6 +76,7 @@ function App() {
             }
           />
           <Route path="/write-article" element={<WriteArticle />} />
+          <Route path="/info" element={<Info />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatIcon from "@mui/icons-material/Chat";
-import limitText from "./limitText";
+import limitText from "./LimitText";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import SimpleBackdrop from "./SimpleBackdrop";
 import NotFound from "../../NotFound";

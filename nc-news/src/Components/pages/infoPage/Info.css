@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+  margin-top: 20px;
+}
+.paragraph {
+  text-align: center;
+}
+.endpoints {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
