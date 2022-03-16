@@ -53,6 +53,7 @@ function App() {
               }
             />
             <Route
+              exact
               path="/#/articles/:id"
               element={
                 <DisplaySingleArticle
@@ -65,6 +66,7 @@ function App() {
               }
             />
             <Route
+              exact
               path="/#/articles/:topic"
               element={
                 <DisplayArticles
