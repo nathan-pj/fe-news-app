@@ -41,7 +41,7 @@ function App() {
             />
             <Route
               exact
-              path="/articles"
+              path="/#/articles"
               element={
                 <DisplayAllArticles
                   sortBy={sortBy}
