@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/"
+            path="https://nathan-pj.github.io/fe-news-app/#/"
             element={
               <DisplayAllArticles
                 sortBy={sortBy}
