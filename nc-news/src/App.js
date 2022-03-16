@@ -26,7 +26,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route
-            path="/"
+            path="https://nathan-pj.github.io/fe-news-app/"
             element={
               <DisplayAllArticles
                 sortBy={sortBy}
