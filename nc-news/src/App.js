@@ -41,7 +41,7 @@ function App() {
             />
             <Route
               exact
-              path="/articles"
+              path="fe-news-app/#/articles"
               element={
                 <DisplayAllArticles
                   sortBy={sortBy}
@@ -53,7 +53,7 @@ function App() {
               }
             />
             <Route
-              path="/articles/:id"
+              path="fe-news-app/#/articles/:id"
               element={
                 <DisplaySingleArticle
                   isLoading={isLoading}
