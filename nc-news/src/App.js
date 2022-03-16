@@ -53,7 +53,7 @@ function App() {
               }
             />
             <Route
-              path="/articles/:id"
+              path="/#/articles/:id"
               element={
                 <DisplaySingleArticle
                   isLoading={isLoading}
