@@ -65,7 +65,7 @@ function App() {
               }
             />
             <Route
-              path="/articles/:topic"
+              path="/#/articles/:topic"
               element={
                 <DisplayArticles
                   sortBy={sortBy}
@@ -78,8 +78,8 @@ function App() {
                 />
               }
             />
-            <Route path="/write-article" element={<WriteArticle />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/#/write-article" element={<WriteArticle />} />
+            <Route path="/#/info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>
