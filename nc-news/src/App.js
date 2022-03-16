@@ -41,7 +41,7 @@ function App() {
             />
             <Route
               exact
-              path="/#/articles"
+              path="/articles"
               element={
                 <DisplayAllArticles
                   sortBy={sortBy}
@@ -53,7 +53,7 @@ function App() {
               }
             />
             <Route
-              path="/#/articles/:id"
+              path="/articles/:id"
               element={
                 <DisplaySingleArticle
                   isLoading={isLoading}
@@ -78,7 +78,7 @@ function App() {
                 />
               }
             />
-            <Route path="/write-article" element={<WriteArticle />} />
+            <Route exact path="/write-article" element={<WriteArticle />} />
             <Route path="/info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
