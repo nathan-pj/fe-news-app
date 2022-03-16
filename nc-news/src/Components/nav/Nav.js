@@ -16,17 +16,20 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          <Nav.Link href="/articles?topic=coding" onClick={() => setSortBy("")}>
+          <Nav.Link
+            href="fe-news-app/#/articles?topic=coding"
+            onClick={() => setSortBy("")}
+          >
             Coding
           </Nav.Link>
           <Nav.Link
-            href="/articles?topic=football"
+            href="fe-news-app/#/articles?topic=football"
             onClick={() => setSortBy("")}
           >
             Football
           </Nav.Link>
           <Nav.Link
-            href="/articles?topic=cooking"
+            href="fe-news-app/#/articles?topic=cooking"
             onClick={() => setSortBy("")}
           >
             Cooking
@@ -34,10 +37,10 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
         </Nav>
 
         <Nav className="ms-auto">
-          <Nav.Link href="/info">
+          <Nav.Link href="fe-news-app/#/info">
             <InfoIcon style={{ textDecoration: "none", color: "white" }} />
           </Nav.Link>
-          <Nav.Link href="/write-article">
+          <Nav.Link href="fe-news-app/#/write-article">
             <CreateIcon style={{ textDecoration: "none", color: "white" }} />
           </Nav.Link>
           <div className="logged-in ">

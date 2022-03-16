@@ -78,7 +78,11 @@ function App() {
                 />
               }
             />
-            <Route exact path="/write-article" element={<WriteArticle />} />
+            <Route
+              exact
+              path="fe-news-app/#/write-article"
+              element={<WriteArticle />}
+            />
             <Route path="/info" element={<Info />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
