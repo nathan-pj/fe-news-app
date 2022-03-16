@@ -17,7 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [deletedArticle, setDeletedArticle] = useState("");
   return (
-    <BrowserRouter>
+    <>
       <NavBar
         setSortBy={setSortBy}
         isLoading={isLoading}
@@ -39,6 +39,7 @@ function App() {
             }
           />
           <Route
+            exact
             path="/articles"
             element={
               <DisplayAllArticles
@@ -51,6 +52,7 @@ function App() {
             }
           />
           <Route
+            exact
             path="/articles/:id"
             element={
               <DisplaySingleArticle
@@ -63,6 +65,7 @@ function App() {
             }
           />
           <Route
+            exact
             path="/articles/:topic"
             element={
               <DisplayArticles
@@ -76,12 +79,12 @@ function App() {
               />
             }
           />
-          <Route path="/write-article" element={<WriteArticle />} />
-          <Route path="/info" element={<Info />} />
-          <Route path="*" element={<NotFound />} />
+          <Route exact path="/write-article" element={<WriteArticle />} />
+          <Route exact path="/info" element={<Info />} />
+          <Route exact path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 
