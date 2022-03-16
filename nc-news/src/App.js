@@ -40,7 +40,7 @@ function App() {
           />
           <Route
             exact
-            path="/articles"
+            path="https://nathan-pj.github.io/fe-news-app/#/articles"
             element={
               <DisplayAllArticles
                 sortBy={sortBy}
@@ -53,7 +53,7 @@ function App() {
           />
           <Route
             exact
-            path="/articles/:id"
+            path="https://nathan-pj.github.io/fe-news-app/#/articles/:id"
             element={
               <DisplaySingleArticle
                 isLoading={isLoading}
@@ -66,7 +66,7 @@ function App() {
           />
           <Route
             exact
-            path="/articles/:topic"
+            path="https://nathan-pj.github.io/fe-news-app/#/articles/:topic"
             element={
               <DisplayArticles
                 sortBy={sortBy}
@@ -79,8 +79,16 @@ function App() {
               />
             }
           />
-          <Route exact path="/write-article" element={<WriteArticle />} />
-          <Route exact path="/info" element={<Info />} />
+          <Route
+            exact
+            path="https://nathan-pj.github.io/fe-news-app/#/write-article"
+            element={<WriteArticle />}
+          />
+          <Route
+            exact
+            path="https://nathan-pj.github.io/fe-news-app/#/info"
+            element={<Info />}
+          />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
       </div>
