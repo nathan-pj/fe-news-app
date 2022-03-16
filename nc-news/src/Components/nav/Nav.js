@@ -10,23 +10,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className="nav">
-      <Navbar.Brand href="/" className="nc-news">
+      <Navbar.Brand href="/#/" className="nc-news">
         nc news
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          <Nav.Link href="/articles?topic=coding" onClick={() => setSortBy("")}>
+          <Nav.Link
+            href="/#/articles?topic=coding"
+            onClick={() => setSortBy("")}
+          >
             Coding
           </Nav.Link>
           <Nav.Link
-            href="/articles?topic=football"
+            href="/#/articles?topic=football"
             onClick={() => setSortBy("")}
           >
             Football
           </Nav.Link>
           <Nav.Link
-            href="/articles?topic=cooking"
+            href="/#/articles?topic=cooking"
             onClick={() => setSortBy("")}
           >
             Cooking
@@ -34,10 +37,10 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
         </Nav>
 
         <Nav className="ms-auto">
-          <Nav.Link href="/info">
+          <Nav.Link href="/#/info">
             <InfoIcon style={{ textDecoration: "none", color: "white" }} />
           </Nav.Link>
-          <Nav.Link href="/write-article">
+          <Nav.Link href="/#/write-article">
             <CreateIcon style={{ textDecoration: "none", color: "white" }} />
           </Nav.Link>
           <div className="logged-in ">
