@@ -1,6 +1,6 @@
 import "./css/App.css";
 import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import NavBar from "./Components/nav/Nav";
 import DisplayAllArticles from "./Components/pages/mainPage/DisplayAllArticles";
@@ -24,70 +24,65 @@ function App() {
         setIsLoading={setIsLoading}
       />
       <div className="App">
-        <Routes>
-          <Route
-            exact
-            path="https://nathan-pj.github.io/fe-news-app/#/"
-            element={
-              <DisplayAllArticles
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                signedIn={signedIn}
-              />
-            }
-          />
-          <Route
-            path="https://nathan-pj.github.io/fe-news-app/#/articles"
-            element={
-              <DisplayAllArticles
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                signedIn={signedIn}
-              />
-            }
-          />
-          <Route
-            path="https://nathan-pj.github.io/fe-news-app/#/articles/:id"
-            element={
-              <DisplaySingleArticle
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                deletedArticle={deletedArticle}
-                setDeletedArticle={setDeletedArticle}
-                signedIn={signedIn}
-              />
-            }
-          />
-          <Route
-            path="https://nathan-pj.github.io/fe-news-app/#/articles/:topic"
-            element={
-              <DisplayArticles
-                sortBy={sortBy}
-                setSortBy={setSortBy}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                deletedArticle={deletedArticle}
-                setDeletedArticle={setDeletedArticle}
-                signedIn={signedIn}
-              />
-            }
-          />
-          <Route
-            exact
-            path="https://nathan-pj.github.io/fe-news-app/#/write-article"
-            element={<WriteArticle />}
-          />
-          <Route
-            exact
-            path="https://nathan-pj.github.io/fe-news-app/#/info"
-            element={<Info />}
-          />
-          <Route exact path="*" element={<NotFound />} />
-        </Routes>
+        <HashRouter>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <DisplayAllArticles
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  signedIn={signedIn}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/articles"
+              element={
+                <DisplayAllArticles
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  signedIn={signedIn}
+                />
+              }
+            />
+            <Route
+              path="/articles/:id"
+              element={
+                <DisplaySingleArticle
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  deletedArticle={deletedArticle}
+                  setDeletedArticle={setDeletedArticle}
+                  signedIn={signedIn}
+                />
+              }
+            />
+            <Route
+              path="/articles/:topic"
+              element={
+                <DisplayArticles
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                  deletedArticle={deletedArticle}
+                  setDeletedArticle={setDeletedArticle}
+                  signedIn={signedIn}
+                />
+              }
+            />
+            <Route path="/write-article" element={<WriteArticle />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HashRouter>
       </div>
     </>
   );
