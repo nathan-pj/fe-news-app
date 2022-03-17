@@ -26,7 +26,7 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
             Football
           </Nav.Link>
           <Nav.Link
-            href="fe-news-app/#/articles?topic=cooking"
+            href="/articles?topic=cooking"
             onClick={() => setSortBy("")}
           >
             Cooking
