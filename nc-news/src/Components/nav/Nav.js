@@ -16,7 +16,10 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          <Nav.Link href="/articles?topic=coding" onClick={() => setSortBy("")}>
+          <Nav.Link
+            href={process.env.PUBLIC_URL + "/articles?topic=coding"}
+            onClick={() => setSortBy("")}
+          >
             Coding
           </Nav.Link>
           <Nav.Link

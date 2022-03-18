@@ -5,9 +5,7 @@ import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter Router basename="/fe-news-app">
-      <App />
-    </HashRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
