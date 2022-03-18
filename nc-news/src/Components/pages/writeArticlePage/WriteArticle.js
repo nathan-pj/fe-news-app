@@ -49,7 +49,6 @@ export default function WriteArticle() {
       setTitleError(true);
       alert("title is empty");
     }
-
     if (body === "") {
       setBodyError(true);
       alert("body is empty");
@@ -125,9 +124,9 @@ export default function WriteArticle() {
           topic={topic}
           setPostSuccess={setPostSuccess}
           postSuccess={postSuccess}
+          topicError={topicError}
         />
       ) : null}
-      {/* {postSuccess ? <div>success!</div> : null} */}
     </div>
   );
 }

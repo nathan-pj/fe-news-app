@@ -37,7 +37,7 @@ export default function DisplaySingleArticle({
         setIsLoading(false);
         setValidId(false);
       });
-  }, []);
+  }, [id, setIsLoading]);
   useEffect(() => {
     setIsLoading(true);
     apiCall
@@ -51,7 +51,7 @@ export default function DisplaySingleArticle({
         setIsLoading(false);
         setValidId(false);
       });
-  }, [commentSubmit, deletedComment, id]);
+  }, [commentSubmit, deletedComment, id, setIsLoading]);
   if (isLoading) {
     return <SimpleBackdrop />;
   }

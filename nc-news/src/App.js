@@ -1,5 +1,5 @@
 import "./css/App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./Components/nav/Nav";
 
@@ -13,10 +13,15 @@ import NotFound from "./Components/NotFound";
 import Info from "./Components/pages/infoPage/Info";
 
 function App() {
-  const [signedIn, setSignedIn] = useState("jessjelly");
+  const [signedIn, setSignedIn] = useState("");
+
   const [sortBy, setSortBy] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [deletedArticle, setDeletedArticle] = useState("");
+  useEffect(() => {
+    setSignedIn("jessjelly");
+  }, []);
+
   return (
     <BrowserRouter>
       <NavBar

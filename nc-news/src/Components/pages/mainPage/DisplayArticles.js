@@ -49,7 +49,15 @@ export default function DisplayArticles({
         setTopicValidity(false);
         setIsLoading(false);
       });
-  }, [search, searchQuery, sortByChanged, deletedArticle]);
+  }, [
+    search,
+    searchQuery,
+    sortByChanged,
+    deletedArticle,
+    setIsLoading,
+    setSortBy,
+    sortBy,
+  ]);
 
   if (isLoading) {
     return <SimpleBackdrop />;
