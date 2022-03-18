@@ -27,7 +27,7 @@ function App() {
           setIsLoading={setIsLoading}
         />
         <div className="App">
-          <Routes>
+          <Routes basename="/fe-news-app">
             <Route
               exact
               path={process.env.PUBLIC_URL + "/"}
