@@ -16,3 +16,18 @@
 .topic-link {
   margin: 10px;
 }
+.info__icon {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  transform: scale(1.1);
+}
+.write-article__icon {
+  transform: scale(1.1);
+  margin-left: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}

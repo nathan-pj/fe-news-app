@@ -46,12 +46,16 @@ export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
         </Nav>
 
         <Nav className="ms-auto">
-          <Link to="/info">
-            <InfoIcon style={{ textDecoration: "none", color: "white" }} />
-          </Link>
-          <Link to="/write-article">
-            <CreateIcon style={{ textDecoration: "none", color: "white" }} />
-          </Link>
+          <div className="info__icon">
+            <Link to="/info">
+              <InfoIcon style={{ textDecoration: "none", color: "white" }} />
+            </Link>
+          </div>
+          <div className="write-article__icon">
+            <Link to="/write-article">
+              <CreateIcon style={{ textDecoration: "none", color: "white" }} />
+            </Link>
+          </div>
           <div className="logged-in ">
             <UserIcon sx={{ display: "flex" }} />
           </div>

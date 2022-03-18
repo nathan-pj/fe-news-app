@@ -1,3 +1,6 @@
+html {
+  overflow-y: scroll;
+}
 .article-text {
   font-family: "Helvetica", Sans-Serif monospace;
   color: rgb(61, 61, 61);
