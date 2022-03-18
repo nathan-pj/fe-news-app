@@ -4,45 +4,54 @@ import UserIcon from "./UserIcon";
 import CreateIcon from "@mui/icons-material/Create";
 import InfoIcon from "@mui/icons-material/Info";
 import { Nav, Navbar } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className="nav">
-      <Navbar.Brand href="/" className="nc-news">
-        nc news
-      </Navbar.Brand>
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <Navbar.Brand className="nc-news">nc news</Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          <Nav.Link
-            href={process.env.PUBLIC_URL + "/articles?topic=coding"}
-            onClick={() => setSortBy("")}
-          >
-            Coding
-          </Nav.Link>
-          <Nav.Link
-            href="/articles?topic=football"
-            onClick={() => setSortBy("")}
-          >
-            Football
-          </Nav.Link>
-          <Nav.Link
-            href="/articles?topic=cooking"
-            onClick={() => setSortBy("")}
-          >
-            Cooking
-          </Nav.Link>
+          <div className="topic-link">
+            <Link
+              to={"/articles?topic=coding"}
+              onClick={() => setSortBy("")}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Coding
+            </Link>
+          </div>
+          <div className="topic-link">
+            <Link
+              to="/articles?topic=football"
+              onClick={() => setSortBy("")}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Football
+            </Link>
+          </div>
+          <div className="topic-link">
+            <Link
+              to={"/articles?topic=cooking"}
+              onClick={() => setSortBy("")}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Cooking
+            </Link>
+          </div>
         </Nav>
 
         <Nav className="ms-auto">
-          <Nav.Link href="/info">
+          <Link to="/info">
             <InfoIcon style={{ textDecoration: "none", color: "white" }} />
-          </Nav.Link>
-          <Nav.Link href="/write-article">
+          </Link>
+          <Link to="/write-article">
             <CreateIcon style={{ textDecoration: "none", color: "white" }} />
-          </Nav.Link>
+          </Link>
           <div className="logged-in ">
             <UserIcon sx={{ display: "flex" }} />
           </div>
