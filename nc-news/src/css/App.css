@@ -161,3 +161,6 @@ html {
 .likes-on-page {
   display: flex;
 }
+.post-message {
+  text-align: center;
+}

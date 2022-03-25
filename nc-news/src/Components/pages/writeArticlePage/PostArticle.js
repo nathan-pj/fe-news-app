@@ -27,5 +27,9 @@ export default function PostArticle({
         console.log(error);
       });
   }, [title, body, topic, setPostSuccess]);
-  return postSuccess ? <div>success</div> : null;
+  return postSuccess ? (
+    <div className="post-message">Article successfully posted.</div>
+  ) : (
+    <div className="post-message">An error occurred.</div>
+  );
 }
