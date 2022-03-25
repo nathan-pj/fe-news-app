@@ -30,6 +30,6 @@ export default function PostArticle({
   return postSuccess ? (
     <div className="post-message">Article successfully posted.</div>
   ) : (
-    <div className="post-message">An error occurred.</div>
+    <div className="post-message">Loading...</div>
   );
 }
