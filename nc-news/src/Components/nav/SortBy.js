@@ -24,41 +24,43 @@ export default function SortBy({ setSortBy, setSortByChanged, sortBy }) {
           name="position"
           defaultValue="top"
         >
-          <FormControlLabel
-            value="title"
-            control={<Radio />}
-            label="title"
-            labelPlacement="top"
-            onClick={(event) => onValueChange(event.target.value)}
-          />
-          <FormControlLabel
-            value="created_at"
-            control={<Radio />}
-            label="date"
-            labelPlacement="top"
-            onClick={(event) => onValueChange(event.target.value)}
-          />
-          <FormControlLabel
-            value="votes"
-            control={<Radio />}
-            label="votes"
-            labelPlacement="top"
-            onClick={(event) => onValueChange(event.target.value)}
-          />
-          <FormControlLabel
-            value="comment_count"
-            control={<Radio />}
-            label="comments"
-            labelPlacement="top"
-            onClick={(event) => onValueChange(event.target.value)}
-          />
-          <FormControlLabel
-            value="author"
-            control={<Radio />}
-            label="author"
-            labelPlacement="top"
-            onClick={(event) => onValueChange(event.target.value)}
-          />
+          <div className="sort-by-options">
+            <FormControlLabel
+              value="title"
+              control={<Radio />}
+              label="title"
+              labelPlacement="top"
+              onClick={(event) => onValueChange(event.target.value)}
+            />
+            <FormControlLabel
+              value="created_at"
+              control={<Radio />}
+              label="date"
+              labelPlacement="top"
+              onClick={(event) => onValueChange(event.target.value)}
+            />
+            <FormControlLabel
+              value="votes"
+              control={<Radio />}
+              label="votes"
+              labelPlacement="top"
+              onClick={(event) => onValueChange(event.target.value)}
+            />
+            <FormControlLabel
+              value="comment_count"
+              control={<Radio />}
+              label="comments"
+              labelPlacement="top"
+              onClick={(event) => onValueChange(event.target.value)}
+            />
+            <FormControlLabel
+              value="author"
+              control={<Radio />}
+              label="author"
+              labelPlacement="top"
+              onClick={(event) => onValueChange(event.target.value)}
+            />
+          </div>
         </RadioGroup>
       </FormControl>
     </div>

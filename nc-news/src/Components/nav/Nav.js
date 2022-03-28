@@ -10,9 +10,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function NavBar({ setSortBy, isLoading, setIsLoading }) {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" className="nav">
-      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <Navbar.Brand className="nc-news">nc news</Navbar.Brand>
-      </Link>
+      <div className="home-link">
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <Navbar.Brand className="nc-news">nc news</Navbar.Brand>
+        </Link>
+      </div>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>

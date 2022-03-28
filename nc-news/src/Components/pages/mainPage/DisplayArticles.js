@@ -9,6 +9,7 @@ import SimpleBackdrop from "./SimpleBackdrop";
 import NotFound from "../../NotFound";
 import SortBy from "../../nav/SortBy";
 import DeleteOption from "./DeleteArticle";
+import OrderSwitch from "./OrderSwitch";
 
 export default function DisplayArticles({
   sortBy,
@@ -26,7 +27,7 @@ export default function DisplayArticles({
 
   const [topicValidity, setTopicValidity] = useState(true);
   const [sortByChanged, setSortByChanged] = useState("yes");
-
+  const [order, setOrder] = useState("DESC");
   useEffect(() => {
     setIsLoading(true);
     apiCall
@@ -37,11 +38,14 @@ export default function DisplayArticles({
         },
       })
       .then((res) => {
-        if (sortBy === "title" || sortBy === "author") {
-          setArticlesList(res.data.articles.reverse());
-        } else {
-          setArticlesList(res.data.articles);
-        }
+        // if (sortBy === "title" || sortBy === "author") {
+        //   setArticlesList(res.data.articles.reverse());
+        // } else {
+
+        setArticlesList(
+          order === "DESC" ? res.data.articles : res.data.articles.reverse()
+        );
+        //}
 
         setIsLoading(false);
       })
@@ -57,6 +61,7 @@ export default function DisplayArticles({
     setIsLoading,
     setSortBy,
     sortBy,
+    order,
   ]);
 
   if (isLoading) {
@@ -81,6 +86,14 @@ export default function DisplayArticles({
               setSortByChanged={setSortByChanged}
             />
           </div>
+          <div className="order-switch">
+            {/* <OrderSwitch
+              order={order}
+              setOrder={setOrder}
+              setIsLoading={setIsLoading}
+              isLoading={isLoading}
+            /> */}
+          </div>
 
           {articlesList.map((article) => {
             return (
@@ -99,7 +112,6 @@ export default function DisplayArticles({
                         to={`/articles/${article.article_id}`}
                         className="links"
                       >
-                        {" "}
                         <p className="read-more">[read more]</p>
                       </Link>
                     </div>

@@ -173,3 +173,9 @@ html {
   border-radius: 0px;
   text-align: center;
 }
+.order-switch {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

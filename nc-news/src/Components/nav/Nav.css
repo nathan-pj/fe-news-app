@@ -3,6 +3,9 @@
 }
 .logged-in {
   padding-right: 15px;
+  text-align: left;
+}
+.home-link {
 }
 .nav {
   background-color: rgb(44, 162, 241);
@@ -14,20 +17,22 @@
   margin-left: 15px;
 }
 .topic-link {
-  margin: 10px;
+  margin: 5px;
+  text-align: left;
 }
 .info__icon {
-  justify-content: center;
+  justify-content: left;
   display: flex;
-  align-items: center;
-  margin-right: 10px;
+  margin-left: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
   transform: scale(1.1);
 }
 .write-article__icon {
   transform: scale(1.1);
-  margin-left: 10px;
-  justify-content: center;
-  display: flex;
+  margin-left: 50px;
+  justify-content: left;
+  margin-top: auto;
+  margin-bottom: auto;
   align-items: center;
-  margin-right: 20px;
 }
