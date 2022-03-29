@@ -1,14 +1,28 @@
-This news app is built off the news API back end that I made:
+# fe news app
 
-Heroku - https://news-app-npj.herokuapp.com/api/
-Github - https://github.com/nathan-pj/news-app
+![](https://github.com/nathan-pj/fe-news-app/blob/main/public/ncnews.jpg?raw=true)
 
-To interact with my back end API, I created various endpoints to receive and send data.
+---
 
-For example:
+This React news app is built off the back end news API that I made.
 
-GET "https://news-app-npj.herokuapp.com/api/articles" - fetches all articles for me to display on the main page.
+###Back end
 
-GET "https://news-app-npj.herokuapp.com/api/articles/32/comments" fetches the comments for article 32.
+[Heroku](https://news-app-npj.herokuapp.com/api/)
 
-Visit the heroku link given above to see all available endpoints (/API)
+[Github](https://github.com/nathan-pj/news-app)
+
+###Blockquotes
+To interact with my back end API, I created various endpoints to receive and send data as shown below:
+
+See all available endpoints:
+
+> GET "https://news-app-npj.herokuapp.com/api/"
+
+Fetch all articles to display on the main page:
+
+> GET "https://news-app-npj.herokuapp.com/api/articles/"
+
+Fetch comments for the article with the _article_id_ of 32:
+
+> GET "https://news-app-npj.herokuapp.com/api/articles/32/comments/"
