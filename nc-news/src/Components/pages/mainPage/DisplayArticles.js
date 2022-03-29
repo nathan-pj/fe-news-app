@@ -38,14 +38,9 @@ export default function DisplayArticles({
         },
       })
       .then((res) => {
-        // if (sortBy === "title" || sortBy === "author") {
-        //   setArticlesList(res.data.articles.reverse());
-        // } else {
-
         setArticlesList(
           order === "DESC" ? res.data.articles : res.data.articles.reverse()
         );
-        //}
 
         setIsLoading(false);
       })
