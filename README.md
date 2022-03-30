@@ -3,16 +3,17 @@
 ![](https://github.com/nathan-pj/fe-news-app/blob/main/public/ncnews.jpg?raw=true)
 
 ---
+[Hosted App](https://fe-newsapp.netlify.app/)
 
 This React news app is built off the back end news API that I made.
 
-###Back end
+### Back end
 
 [Heroku](https://news-app-npj.herokuapp.com/api/)
 
 [Github](https://github.com/nathan-pj/news-app)
 
-###Blockquotes
+
 To interact with my back end API, I created various endpoints to receive and send data as shown below:
 
 See all available endpoints:
